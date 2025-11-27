@@ -14,11 +14,11 @@
 
 <!-- 투표 비율 바 -->
 <div class="progress-bar">
-    <div class="progress-a" style="width:64.70588235294117%">
-        <span>64.7%</span>
+    <div class="progress-a" th:style="'width:' + ${percentA} + '%'">
+        <span th:text="${percentA}+'%'"></span>
     </div>
-    <div class="progress-b" style="width:35.294117647058826%">
-        <span>35.3%</span>
+    <div class="progress-b" th:style="'width:' + ${percentB} + '%'">
+        <span th:text="${percentB}+'%'"></span>
     </div>
 </div>
 
@@ -28,11 +28,11 @@
 <div>
     <div class="option-card option-a">
         <h3>A</h3>
-        <p>짜장면</p>
+        <p th:text="${question.optionA}"></p>
     </div>
     <div class="option-card option-b">
         <h3>B</h3>
-        <p>짬뽕</p>
+        <p th:text="${question.optionB}"></p>
     </div>
 </div>
 
@@ -40,7 +40,7 @@
 
 <!-- 답변 작성 폼 -->
 <h3>투표하기</h3>
-<form action="/questions/1/answers" method="post">
+<form th:action="@{/questions/{id}/answers(id=${question.id})}" method="post">
     <div>
         <label>선택</label><br>
         <select required="" id="answerText" name="answerText">
@@ -62,15 +62,9 @@
 
 <h3>투표 결과</h3>
 <div>
-    <div class="answer-a">
-        <strong>A</strong> -
-        <span>짜장면 소스가 최고!</span>
-    </div>
-</div>
-<div>
-    <div class="answer-b">
-        <strong>B</strong> -
-        <span>어머니는 짜장면이 싫다고 하셨어</span>
+    <div th:class="'answer-' + ${answer.answerText.toLowerCase()}" th:each="answer: ${answers}">
+        <strong th:text="${answer.answerText}"></strong>
+        <span th:text="${answer.content}"></span>
     </div>
 </div>
 
@@ -79,7 +73,7 @@
 
 <!-- 플래시 메시지 -->
 <div style="color: green;">
-    <p>답변이 등록되었습니다.</p>
+    <p th:text="${message}"></p>
 </div>
 
 </body>
