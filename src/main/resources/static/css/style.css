@@ -1,0 +1,52 @@
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background-color: #eee;
+    display: flex;
+}
+
+.progress-a {
+    background-color: #0d6efd;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+}
+
+.progress-b {
+    background-color: #dc3545;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+}
+
+.option-card {
+    display: inline-block;
+    width: 45%;
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid #ccc;
+    text-align: center;
+}
+
+.option-a {
+    border-color: #0d6efd;
+}
+
+.option-b {
+    border-color: #dc3545;
+}
+
+.answer-a {
+    background-color: #cfe2ff;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.answer-b {
+    background-color: #f8d7da;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+
+

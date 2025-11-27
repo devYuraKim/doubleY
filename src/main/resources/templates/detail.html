@@ -1,13 +1,86 @@
 <!doctype html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="ko" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <title>detail</title>
 </head>
 <body>
-    
+
+<h1 th:text="${question.title}"></h1>
+
+<!-- 투표 비율 바 -->
+<div class="progress-bar">
+    <div class="progress-a" style="width:64.70588235294117%">
+        <span>64.7%</span>
+    </div>
+    <div class="progress-b" style="width:35.294117647058826%">
+        <span>35.3%</span>
+    </div>
+</div>
+
+<br>
+
+<!-- 선택지 카드 -->
+<div>
+    <div class="option-card option-a">
+        <h3>A</h3>
+        <p>짜장면</p>
+    </div>
+    <div class="option-card option-b">
+        <h3>B</h3>
+        <p>짬뽕</p>
+    </div>
+</div>
+
+<hr>
+
+<!-- 답변 작성 폼 -->
+<h3>투표하기</h3>
+<form action="/questions/1/answers" method="post">
+    <div>
+        <label>선택</label><br>
+        <select required="" id="answerText" name="answerText">
+            <option value="">-- 선택하세요 --</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <label for="content">의견</label><br>
+        <textarea id="content" rows="3" placeholder="선택 이유를 적어주세요" required="" name="content"></textarea>
+    </div>
+    <br>
+    <button type="submit">투표하기</button>
+</form>
+
+<hr>
+
+<h3>투표 결과</h3>
+<div>
+    <div class="answer-a">
+        <strong>A</strong> -
+        <span>짜장면 소스가 최고!</span>
+    </div>
+</div>
+<div>
+    <div class="answer-b">
+        <strong>B</strong> -
+        <span>어머니는 짜장면이 싫다고 하셨어</span>
+    </div>
+</div>
+
+<br>
+<a href="/questions">목록으로</a>
+
+<!-- 플래시 메시지 -->
+<div style="color: green;">
+    <p>답변이 등록되었습니다.</p>
+</div>
+
 </body>
 </html>
