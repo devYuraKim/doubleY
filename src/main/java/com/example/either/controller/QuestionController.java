@@ -21,6 +21,8 @@ public class QuestionController {
 
     @GetMapping
     public String list(Model model) {
+        List<Question> questions = questionService.findAllQuestions();
+        model.addAttribute("questions", questions);
         return "list";
     }
 

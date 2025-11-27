@@ -14,56 +14,27 @@
 
     <hr>
 
-<!--    <table border="1">-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th>ID</th>-->
-<!--            <th>질문</th>-->
-<!--            <th>보기</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr>-->
-<!--            <td>1</td>-->
-<!--            <td>짜장면 vs 짬뽕?</td>-->
-<!--            <td>-->
-<!--                <a href="/questions/1">상세보기</a>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>2</td>-->
-<!--            <td>여름 vs 겨울?</td>-->
-<!--            <td>-->
-<!--                <a href="/questions/2">상세보기</a>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>3</td>-->
-<!--            <td>아침형 vs 저녁형?</td>-->
-<!--            <td>-->
-<!--                <a href="/questions/3">상세보기</a>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>4</td>-->
-<!--            <td>vv</td>-->
-<!--            <td>-->
-<!--                <a href="/questions/4">상세보기</a>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td>5</td>-->
-<!--            <td>아아 vs 뜨아</td>-->
-<!--            <td>-->
-<!--                <a href="/questions/5">상세보기</a>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
+    <table>
+        <thead>
+        <!-- tr>th*3 입력 후 tab -->
+        <tr>
+            <th>ID</th>
+            <th>질문</th>
+            <th>보기</th>
+        </tr></thead>
+        <tbody>
+        <!-- tr>td*3 입력 후 tab -->
+        <tr th:each="question : ${questions}">
+            <td th:text="${question.id}"></td>
+            <td th:text="${question.title}"></td>
+            <td>
+                <a th:href="@{/questions/{id}(id=${question.id})}">상세보기</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
     <!-- 플래시 메시지 -->
-
-
 
     </body>
 </html>
