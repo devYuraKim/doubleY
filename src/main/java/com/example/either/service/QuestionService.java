@@ -3,9 +3,7 @@ package com.example.either.service;
 import com.example.either.entity.Question;
 import com.example.either.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,5 +19,9 @@ public class QuestionService {
     public List<Question> findAllQuestions() {
         System.out.println(questionRepository.findAll());
         return questionRepository.findAll();
+    }
+
+    public Question getQuestionById(Long id){
+        return questionRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Question Not Found"));
     }
 }

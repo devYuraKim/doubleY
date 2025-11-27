@@ -6,10 +6,7 @@ import com.example.either.service.QuestionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,7 +32,14 @@ public class QuestionController {
     @PostMapping
     public String createQuestion(@ModelAttribute Question question) {
         questionService.createQuestion(question);
-        return "list";
+        return "redirect:/questions";
+    }
+
+    @GetMapping("/{id}")
+    public String detail(@PathVariable Long id, Model model) {
+        Question question = questionService.getQuestionById(id);
+        model.addAttribute("question", question);
+        return "detail";
     }
 
 }
