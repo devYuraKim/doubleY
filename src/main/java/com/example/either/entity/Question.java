@@ -15,7 +15,7 @@ import java.util.List;
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @Column(nullable = false, length = 200)
     private String title;
     @Column(nullable = false, length = 200)
